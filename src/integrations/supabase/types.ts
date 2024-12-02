@@ -9,7 +9,54 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      lottery_draws: {
+        Row: {
+          ball_1: number
+          ball_2: number
+          ball_3: number
+          ball_4: number
+          ball_5: number
+          ball_6: number
+          ball_set: number | null
+          bonus_ball: number
+          created_at: string | null
+          draw_date: string
+          draw_number: number
+          id: number
+          machine: string | null
+        }
+        Insert: {
+          ball_1: number
+          ball_2: number
+          ball_3: number
+          ball_4: number
+          ball_5: number
+          ball_6: number
+          ball_set?: number | null
+          bonus_ball: number
+          created_at?: string | null
+          draw_date: string
+          draw_number: number
+          id?: never
+          machine?: string | null
+        }
+        Update: {
+          ball_1?: number
+          ball_2?: number
+          ball_3?: number
+          ball_4?: number
+          ball_5?: number
+          ball_6?: number
+          ball_set?: number | null
+          bonus_ball?: number
+          created_at?: string | null
+          draw_date?: string
+          draw_number?: number
+          id?: never
+          machine?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
