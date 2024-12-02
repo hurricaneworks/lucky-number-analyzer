@@ -1,25 +1,38 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { CalendarDays } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 interface StatisticsProps {
   selectedNumbers: number[];
 }
 
-// Mock historical winning dates for the sequence 1,2,3,4,5,6
-const MOCK_WINNING_HISTORY = [
-  { date: "2023-12-15", numbers: [1, 2, 3, 4, 5, 6] },
-  { date: "2022-08-03", numbers: [1, 2, 3, 4, 5, 6] },
-  { date: "2021-05-19", numbers: [1, 2, 3, 4, 5, 6] },
-  { date: "2020-11-27", numbers: [1, 2, 3, 4, 5, 6] },
-];
-
 const Statistics = ({ selectedNumbers }: StatisticsProps) => {
-  const isSequence123456 = () => {
-    if (selectedNumbers.length !== 6) return false;
-    const sortedNumbers = [...selectedNumbers].sort((a, b) => a - b);
-    return JSON.stringify(sortedNumbers) === JSON.stringify([1, 2, 3, 4, 5, 6]);
-  };
+  const { data: drawHistory, isLoading } = useQuery({
+    queryKey: ['lotteryDraws', selectedNumbers],
+    queryFn: async () => {
+      if (selectedNumbers.length !== 6) return [];
+      
+      const sortedNumbers = [...selectedNumbers].sort((a, b) => a - b);
+      const [n1, n2, n3, n4, n5, n6] = sortedNumbers;
+      
+      const { data, error } = await supabase
+        .from('lottery_draws')
+        .select('*')
+        .eq('ball_1', n1)
+        .eq('ball_2', n2)
+        .eq('ball_3', n3)
+        .eq('ball_4', n4)
+        .eq('ball_5', n5)
+        .eq('ball_6', n6)
+        .order('draw_date', { ascending: false });
+        
+      if (error) throw error;
+      return data || [];
+    },
+    enabled: selectedNumbers.length === 6
+  });
 
   if (selectedNumbers.length === 0) {
     return null;
@@ -49,19 +62,24 @@ const Statistics = ({ selectedNumbers }: StatisticsProps) => {
                 <p className="text-xl mb-4">
                   Your numbers: {selectedNumbers.sort((a, b) => a - b).join(", ")}
                 </p>
-                {isSequence123456() ? (
+                {isLoading ? (
+                  <p>Loading historical data...</p>
+                ) : drawHistory && drawHistory.length > 0 ? (
                   <div className="space-y-4">
                     <p className="text-2xl font-bold text-lottery-primary mb-6">
-                      This combination has appeared {MOCK_WINNING_HISTORY.length} times!
+                      This combination has appeared {drawHistory.length} times!
                     </p>
                     <div className="grid gap-4">
-                      {MOCK_WINNING_HISTORY.map((win, index) => (
+                      {drawHistory.map((draw) => (
                         <div
-                          key={win.date}
+                          key={draw.draw_number}
                           className="bg-lottery-background p-4 rounded-lg border border-lottery-primary/20 transform hover:scale-105 transition-transform duration-200"
                         >
                           <p className="text-lg font-semibold text-lottery-primary">
-                            {formatDate(win.date)}
+                            {formatDate(draw.draw_date)}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            Draw #{draw.draw_number}
                           </p>
                         </div>
                       ))}
