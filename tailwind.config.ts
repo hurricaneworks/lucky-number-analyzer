@@ -20,9 +20,9 @@ export default {
     extend: {
       colors: {
         lottery: {
-          primary: "#FF336D",
-          secondary: "#2C3E50",
-          background: "#F8FAFC",
+          primary: "#0EA5E9", // Changed to bright blue
+          secondary: "#22C55E", // Changed to green
+          background: "#F0FDFA", // Light mint background
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

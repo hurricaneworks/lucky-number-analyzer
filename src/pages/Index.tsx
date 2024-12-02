@@ -3,13 +3,6 @@ import NumberPicker from "@/components/NumberPicker";
 import Statistics from "@/components/Statistics";
 import { useToast } from "@/components/ui/use-toast";
 
-// Simulated past winning numbers data
-const MOCK_APPEARANCES = {
-  1: 15, 2: 20, 3: 18, 4: 25, 5: 22, 6: 19, 7: 21, 8: 17, 9: 23, 10: 16,
-  11: 24, 12: 18, 13: 20, 14: 19, 15: 21, 16: 22, 17: 25, 18: 23, 19: 17, 20: 16,
-  // ... add more numbers as needed
-};
-
 const Index = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
   const { toast } = useToast();
@@ -63,7 +56,6 @@ const Index = () => {
         {selectedNumbers.length > 0 && (
           <Statistics
             selectedNumbers={selectedNumbers}
-            appearances={MOCK_APPEARANCES}
           />
         )}
       </div>
