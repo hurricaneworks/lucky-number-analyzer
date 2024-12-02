@@ -87,9 +87,9 @@ const Statistics = ({ selectedNumbers }: StatisticsProps) => {
                       ))}
                     </div>
                     <div className="grid gap-4">
-                      {drawHistory.map((draw) => (
+                      {drawHistory.map((draw, index) => (
                         <div
-                          key={draw.draw_number}
+                          key={`${draw.draw_date}-${index}`}
                           className={`bg-lottery-background p-4 rounded-lg border transform hover:scale-105 transition-transform duration-200 ${
                             draw.matchCount === 6 
                               ? 'border-lottery-primary' 
@@ -100,9 +100,6 @@ const Statistics = ({ selectedNumbers }: StatisticsProps) => {
                         >
                           <p className="text-lg font-semibold text-lottery-primary">
                             {formatDate(draw.draw_date)}
-                          </p>
-                          <p className="text-sm text-gray-600">
-                            Draw #{draw.draw_number}
                           </p>
                           <p className="text-sm font-medium mt-1">
                             Matched {draw.matchCount} numbers

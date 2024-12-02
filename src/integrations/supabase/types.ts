@@ -17,13 +17,10 @@ export type Database = {
           ball_4: number
           ball_5: number
           ball_6: number
-          ball_set: number | null
           bonus_ball: number
-          created_at: string | null
+          created_at: string
           draw_date: string
-          draw_number: number
           id: number
-          machine: string | null
         }
         Insert: {
           ball_1: number
@@ -32,13 +29,10 @@ export type Database = {
           ball_4: number
           ball_5: number
           ball_6: number
-          ball_set?: number | null
           bonus_ball: number
-          created_at?: string | null
+          created_at?: string
           draw_date: string
-          draw_number: number
           id?: never
-          machine?: string | null
         }
         Update: {
           ball_1?: number
@@ -47,13 +41,10 @@ export type Database = {
           ball_4?: number
           ball_5?: number
           ball_6?: number
-          ball_set?: number | null
           bonus_ball?: number
-          created_at?: string | null
+          created_at?: string
           draw_date?: string
-          draw_number?: number
           id?: never
-          machine?: string | null
         }
         Relationships: []
       }
