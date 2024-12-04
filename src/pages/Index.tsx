@@ -4,6 +4,7 @@ import Statistics from "@/components/Statistics";
 import { useToast } from "@/components/ui/use-toast";
 import Logo from "@/components/Logo";
 import { Card, CardContent } from "@/components/ui/card";
+import { Info } from "lucide-react";
 
 const Index = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
@@ -42,6 +43,35 @@ const Index = () => {
             Select 6 numbers to see how frequently they've appeared in past UK lottery draws.
           </p>
         </div>
+
+        <Card className="bg-blue-50 mb-8">
+          <CardContent className="p-6">
+            <div className="flex items-start gap-4">
+              <Info className="w-6 h-6 text-blue-800 mt-1 flex-shrink-0" />
+              <div className="text-left">
+                <h2 className="text-xl font-semibold text-blue-800 mb-3">
+                  How This Tool Works
+                </h2>
+                <p className="text-black mb-4">
+                  This analyzer helps you discover if your regular lottery numbers have ever appeared together in winning combinations. It searches through historical UK lottery draws to find matches of 4 or more numbers from your selection.
+                </p>
+                <h3 className="text-lg font-semibold text-blue-800 mb-2">
+                  Statistical Odds of Matching Numbers
+                </h3>
+                <ul className="space-y-2 text-black">
+                  <li>• Matching 2 numbers: 1 in 10.3</li>
+                  <li>• Matching 3 numbers: 1 in 144</li>
+                  <li>• Matching 4 numbers: 1 in 2,180</li>
+                  <li>• Matching 5 numbers: 1 in 144,415</li>
+                  <li>• Matching all 6 numbers: 1 in 45,057,474</li>
+                </ul>
+                <p className="mt-4 text-sm text-blue-800">
+                  Select your numbers below to start analyzing their historical performance.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold text-blue-800 mb-4">
