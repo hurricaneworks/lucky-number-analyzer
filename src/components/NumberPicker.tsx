@@ -22,8 +22,8 @@ const NumberPicker = ({ selectedNumbers, onNumberSelect }: NumberPickerProps) =>
               "w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-sm md:text-base font-semibold transition-all",
               "hover:scale-110 active:scale-95",
               isSelected
-                ? "bg-lottery-primary text-white animate-number-pop"
-                : "bg-white border-2 border-gray-200 hover:border-lottery-secondary",
+                ? "bg-white border-2 border-red-500 text-blue-600 animate-number-pop"
+                : "bg-white border-2 border-gray-200 text-blue-600 hover:border-red-300",
               selectedNumbers.length >= 6 && !isSelected && "opacity-50 cursor-not-allowed hover:scale-100"
             )}
           >
