@@ -19,8 +19,8 @@ const Footer = () => {
         months.add(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`);
       });
       
-      return Array.from(months).map(month => {
-        const [year, monthNum] = month.split('-');
+      return Array.from(months).map(monthStr => {
+        const [year, monthNum] = (monthStr as string).split('-');
         return {
           year,
           month: new Date(parseInt(year), parseInt(monthNum) - 1).toLocaleString('default', { month: 'long' }),
