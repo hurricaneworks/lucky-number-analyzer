@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import NumberPicker from "@/components/NumberPicker";
 import Statistics from "@/components/Statistics";
 import { useToast } from "@/components/ui/use-toast";
-import Logo from "@/components/Logo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Info } from "lucide-react";
+import Header from "@/components/Header";
 
 const Index = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
@@ -33,9 +33,7 @@ const Index = () => {
     <div className="min-h-screen bg-lottery-background font-['Poppins']">
       <div className="container mx-auto py-8">
         <div className="text-center mb-8">
-          <div className="flex justify-center mb-6">
-            <Logo />
-          </div>
+          <Header />
           <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
             UK Lottery Number Analyzer
           </h1>

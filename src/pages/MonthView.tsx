@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Header from "@/components/Header";
 
 const MonthView = () => {
   const { year, month } = useParams();
@@ -27,7 +28,10 @@ const MonthView = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold text-blue-600 mb-8">{month} {year} Draws</h1>
+      <div className="text-center mb-8">
+        <Header />
+        <h1 className="text-3xl font-bold text-blue-600">{month} {year} Draws</h1>
+      </div>
       <div className="grid gap-4">
         {draws?.map((draw) => (
           <Card key={draw.id}>
