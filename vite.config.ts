@@ -16,6 +16,11 @@ export default defineConfig(async ({ mode }) => {
   const taggerPlugin = await getLovableTagger();
 
   return {
+    test: {
+      environment: 'jsdom',
+      setupFiles: ['./src/test/setup.ts'],
+      globals: true
+    },
     server: {
       host: "::",
       port: 8080,
