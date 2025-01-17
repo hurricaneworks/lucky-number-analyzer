@@ -1,0 +1,16 @@
+{
+  "name": "UK Lottery Number Analyzer",
+  "short_name": "Lottery Analyzer",
+  "description": "Analyze UK lottery numbers, check statistics, and understand your chances of winning. Get insights into Lotto and EuroMillions games.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

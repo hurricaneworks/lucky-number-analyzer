@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import Logo from "@/components/Logo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Info } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
@@ -30,11 +31,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-lottery-background font-['Poppins']">
+    <main className="min-h-screen bg-lottery-background font-['Poppins']">
+      <SEO />
       <div className="container mx-auto py-8">
-        <div className="text-center mb-8">
+        <header className="text-center mb-8">
           <div className="flex justify-center mb-6">
-            <Logo />
+            <Logo aria-label="UK Lottery Number Analyzer Logo" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
             UK Lottery Number Analyzer
@@ -42,7 +44,7 @@ const Index = () => {
           <p className="text-blue-800/80 max-w-2xl mx-auto">
             Select 6 numbers to see how frequently they've appeared in past UK lottery draws.
           </p>
-        </div>
+        </header>
 
         <Card className="bg-blue-50 mb-8">
           <CardContent className="p-6">
