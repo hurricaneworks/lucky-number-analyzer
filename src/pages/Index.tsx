@@ -30,9 +30,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-lottery-background font-['Poppins']">
+    <main className="min-h-screen bg-lottery-background font-['Poppins']">
       <div className="container mx-auto py-8">
-        <div className="text-center mb-8">
+        <header className="text-center mb-8">
           <div className="flex justify-center mb-6">
             <Logo />
           </div>
@@ -42,7 +42,7 @@ const Index = () => {
           <p className="text-blue-800/80 max-w-2xl mx-auto">
             Select 6 numbers to see how frequently they've appeared in past UK lottery draws.
           </p>
-        </div>
+        </header>
 
         <Card className="bg-blue-50 mb-8">
           <CardContent className="p-6">
@@ -132,7 +132,7 @@ const Index = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </main>
   );
 };
 
