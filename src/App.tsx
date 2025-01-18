@@ -6,12 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import MonthView from "./pages/MonthView";
 import Footer from "./components/Footer";
+import { GPTEngineerScript } from "./components/GPTEngineerScript";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <GPTEngineerScript />
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true }}>
