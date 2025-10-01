@@ -4,9 +4,4 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[context.production.environment]
   BUILD_IMAGE = "noble"
