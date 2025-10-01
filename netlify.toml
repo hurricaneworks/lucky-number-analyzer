@@ -4,4 +4,12 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  BUILD_IMAGE = "noble"
+
+[context.production]
+  environment = { BUILD_IMAGE = "noble" }
+
+[context.deploy-preview]
+  environment = { BUILD_IMAGE = "noble" }
+
+[context.branch-deploy]
+  environment = { BUILD_IMAGE = "noble" }
